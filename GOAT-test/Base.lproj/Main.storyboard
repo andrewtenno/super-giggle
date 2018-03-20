@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Los Angeles-->
         <scene sceneID="B8G-E9-DbM">
             <objects>
-                <tableViewController id="rki-pF-r1V" sceneMemberID="viewController">
+                <tableViewController id="rki-pF-r1V" customClass="WeatherViewController" customModule="GOAT_test" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="m59-HQ-b6v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="rki-pF-r1V" id="RsD-oJ-DAE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pXe-rS-9bt">
+                    <navigationItem key="navigationItem" title="Los Angeles" id="pXe-rS-9bt">
                         <barButtonItem key="rightBarButtonItem" title="Locate" style="plain" id="mr8-Ug-rda"/>
                     </navigationItem>
                 </tableViewController>

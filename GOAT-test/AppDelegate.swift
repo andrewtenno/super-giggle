@@ -18,7 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        if let navController = window?.rootViewController as? UINavigationController,
+            let weatherViewController = navController.topViewController as? WeatherViewController {
+            weatherViewController.forecastUpdater = createForecastUpdater()
+        }
+
         return true
     }
+}
+
+private func createForecastUpdater() -> ForecastUpdatable {
+    let dataFetcher = LocalDataFetcher()
+    let requester = ForecastRequester(apiKey: apiKey, dataFetcher: dataFetcher)
+    let generator = ForecastViewModelFactory()
+
+    return ForecastUpdater(requester: requester, generator: generator)
 }
 
