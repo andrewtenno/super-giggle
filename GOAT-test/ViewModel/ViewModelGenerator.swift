@@ -47,12 +47,12 @@ class ForecastViewModelFactory {
 
 extension ForecastViewModelFactory: ForecastViewModelGeneratable {
     func generateViewModels(fromForecast forecast: Forecast) -> ForecastViewModel {
-        return ForecastViewModel(currentViewModel: generateCurrentViewModel(fromCurrentDataPoint: forecast.currently, timeZone: forecast.timeZone),
+        return ForecastViewModel(currentViewModel: generateBaseViewModel(fromCurrentDataPoint: forecast.currently, timeZone: forecast.timeZone),
                                  hourlyViewModels: generateHourlyViewModels(fromHourlyDataBlock: forecast.hourly, timeZone: forecast.timeZone),
                                  dailyViewModels: generateDailyViewModels(fromDailyDataBlock: forecast.daily, timeZone: forecast.timeZone))
     }
 
-    private func generateCurrentViewModel(fromCurrentDataPoint dataPoint: DataPoint, timeZone: String) -> CurrentViewModel {
+    private func generateBaseViewModel(fromCurrentDataPoint dataPoint: DataPoint, timeZone: String) -> BaseViewModel {
         currentDateFormatter.timeZone = TimeZone(identifier: timeZone)
         let dateTimeString = currentDateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(dataPoint.time)))
         let summary = dataPoint.summary ?? ""
@@ -63,16 +63,16 @@ extension ForecastViewModelFactory: ForecastViewModelGeneratable {
         } else {
             temperatureString = ""
         }
+        let iconEmoji = convertIconToEmoji(icon)
 
-        return CurrentViewModel(dateTimeString: dateTimeString,
+        return BaseViewModel(dateTimeString: dateTimeString,
                                 summary: summary,
-                                icon: icon,
-                                temperatureString: temperatureString)
+                                temperatureString: iconEmoji + temperatureString)
     }
 
-    private func generateHourlyViewModels(fromHourlyDataBlock dataBlock: DataBlock, timeZone: String) -> [HourlyViewModel] {
+    private func generateHourlyViewModels(fromHourlyDataBlock dataBlock: DataBlock, timeZone: String) -> [BaseViewModel] {
         currentDateFormatter.timeZone = TimeZone(identifier: timeZone)
-        return dataBlock.data.map({ (dataPoint) -> HourlyViewModel in
+        return dataBlock.data.map({ (dataPoint) -> BaseViewModel in
             let dateTimeString = hourlyyDateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(dataPoint.time)))
             let summary = dataPoint.summary ?? ""
             let icon = dataPoint.icon ?? ""
@@ -82,16 +82,16 @@ extension ForecastViewModelFactory: ForecastViewModelGeneratable {
             } else {
                 temperatureString = ""
             }
+            let iconEmoji = convertIconToEmoji(icon)
 
-            return HourlyViewModel(dateTimeString: dateTimeString,
-                                   summary: summary,
-                                   icon: icon,
-                                   temperatureString: temperatureString)
+            return BaseViewModel(dateTimeString: dateTimeString,
+                                 summary: summary,
+                                 temperatureString: iconEmoji + temperatureString)
         })
     }
 
-    private func generateDailyViewModels(fromDailyDataBlock dataBlock: DataBlock, timeZone: String) -> [DailyViewModel] {
-        return dataBlock.data.map({ (dataPoint) -> DailyViewModel in
+    private func generateDailyViewModels(fromDailyDataBlock dataBlock: DataBlock, timeZone: String) -> [BaseViewModel] {
+        return dataBlock.data.map({ (dataPoint) -> BaseViewModel in
             let dateTimeString = dailyDateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(dataPoint.time)))
             let summary = dataPoint.summary ?? ""
             let icon = dataPoint.icon ?? ""
@@ -107,12 +107,16 @@ extension ForecastViewModelFactory: ForecastViewModelGeneratable {
             } else {
                 lowTemperatureString = ""
             }
+            let iconEmoji = convertIconToEmoji(icon)
+            let temperatureString = "\(iconEmoji)\(lowTemperatureString) - \(highTemperatureString)"
 
-            return DailyViewModel(dateTimeString: dateTimeString,
+            return BaseViewModel(dateTimeString: dateTimeString,
                                   summary: summary,
-                                  icon: icon,
-                                  temperatureHighString: highTemperatureString,
-                                  temperatureLowString: lowTemperatureString)
+                                  temperatureString: temperatureString)
         })
     }
+}
+
+private func convertIconToEmoji(_ icon: String) -> String {
+    return ""
 }

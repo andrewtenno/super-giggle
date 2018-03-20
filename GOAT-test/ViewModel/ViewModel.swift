@@ -9,38 +9,13 @@
 import Foundation
 
 struct ForecastViewModel {
-    let currentViewModel: CurrentViewModel
-    let hourlyViewModels: [HourlyViewModel]
-    let dailyViewModels: [DailyViewModel]
+    let currentViewModel: BaseViewModel
+    let hourlyViewModels: [BaseViewModel]
+    let dailyViewModels: [BaseViewModel]
 }
 
-protocol BaseViewModel {
-    var dateTimeString: String { get }
-    var summary: String { get }
-    var icon: String { get }
-}
-
-struct CurrentViewModel: BaseViewModel {
+struct BaseViewModel {
     let dateTimeString: String
     let summary: String
-    let icon: String
-
     let temperatureString: String
-}
-
-struct HourlyViewModel: BaseViewModel {
-    let dateTimeString: String
-    let summary: String
-    let icon: String
-
-    let temperatureString: String
-}
-
-struct DailyViewModel: BaseViewModel {
-    let dateTimeString: String
-    let summary: String
-    let icon: String
-
-    let temperatureHighString: String
-    let temperatureLowString: String
 }

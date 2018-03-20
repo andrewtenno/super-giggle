@@ -60,25 +60,15 @@ extension WeatherViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let reuseIdentifier = determineReuseIdentifier(forSection: indexPath.section)
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        guard let viewModel = getViewModel(forIndexPath: indexPath) else { fatalError() }
 
-        // TODO: Add View Model binding to cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell", for: indexPath)
+
+        if let currentCell = cell as? ForecastCell {
+            currentCell.viewModel = viewModel
+        }
 
         return cell
-    }
-
-    private func determineReuseIdentifier(forSection section: Int) -> String {
-        switch section {
-        case 0:
-            return "currentCell"
-        case 1:
-            return "dailyCell"
-        case 2:
-            return "hourlyCell"
-        default:
-            fatalError()
-        }
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -136,6 +126,21 @@ extension WeatherViewController {
                                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
+    }
+
+    private func getViewModel(forIndexPath indexPath: IndexPath) -> BaseViewModel? {
+        guard let viewModel = viewModel else { return nil }
+
+        switch indexPath.section {
+        case 0:
+            return viewModel.currentViewModel
+        case 1 where viewingMode == .daily:
+            return viewModel.dailyViewModels[indexPath.row]
+        case 2 where viewingMode == .hourly:
+            return viewModel.hourlyViewModels[indexPath.row]
+        default:
+            return nil
+        }
     }
 }
 
