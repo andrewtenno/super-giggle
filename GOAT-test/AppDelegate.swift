@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 private func createForecastUpdater() -> ForecastUpdatable {
-    let dataFetcher = LocalDataFetcher()
+    let dataFetcher = RemoteDataFetcher(urlSession: .shared)
     let requester = ForecastRequester(apiKey: apiKey, dataFetcher: dataFetcher)
     let generator = ForecastViewModelFactory()
 
