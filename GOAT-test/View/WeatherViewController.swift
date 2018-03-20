@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UITableViewController {
     var forecastUpdater: ForecastUpdatable? {
@@ -14,12 +15,15 @@ class WeatherViewController: UITableViewController {
             forecastUpdater?.delegate = self
         }
     }
+    var locationController: LocationFindable?
 
     private var viewModel: ForecastViewModel?
     private var isLoading = false
-    private var location = Location(latitude: 0, longitude: 0)
+    private var location = Location(latitude: 37.8267,
+                                    longitude: -122.4233)
 
     @IBOutlet weak var changeRangeButton: UIButton!
+    @IBOutlet weak var changeLocationButton: UIBarButtonItem!
 
     enum ViewingMode {
         case daily, hourly
@@ -29,7 +33,7 @@ class WeatherViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if viewModel == nil {
+        if viewModel == nil && !isLoading {
             updateForecast()
         }
     }
@@ -49,6 +53,9 @@ class WeatherViewController: UITableViewController {
 
     @IBAction func didTapChangeRangeButton(_ sender: Any) {
         presentSwitchRangeActionSheet()
+    }
+    @IBAction func didTapChangeLocationButton(_ sender: Any) {
+        attemptToFindLocation()
     }
 }
 
@@ -116,6 +123,7 @@ extension WeatherViewController: ForecastUpdatableDelegate {
         OperationQueue.main.addOperation {
             self.isLoading = false
             self.changeRangeButton.isEnabled = true
+            self.changeLocationButton.isEnabled = true
             self.viewModel = viewModel
             self.tableView.reloadData()
         }
@@ -169,10 +177,9 @@ extension WeatherViewController: UIViewControllerTransitioningDelegate {
 
 extension WeatherViewController {
     private func updateForecast() {
-        guard !isLoading else { return }
-
         isLoading = true
         changeRangeButton.isEnabled = false
+        changeLocationButton.isEnabled = false
         forecastUpdater?.updateForecast(forLocation: location)
     }
 
@@ -198,5 +205,27 @@ extension WeatherViewController {
             return nil
         }
     }
-}
 
+    private func attemptToFindLocation() {
+        self.isLoading = true
+        self.changeRangeButton.isEnabled = false
+        self.changeLocationButton.isEnabled = false
+        locationController?.getLocation(completion: { [weak self] (result) in
+            guard let sSelf = self else { return }
+            switch result {
+            case .success(let location):
+                OperationQueue.main.addOperation {
+                    sSelf.location = location
+                    sSelf.updateForecast()
+                }
+            case .failure(let error):
+                OperationQueue.main.addOperation {
+                    sSelf.isLoading = false
+                    sSelf.changeRangeButton.isEnabled = true
+                    sSelf.changeLocationButton.isEnabled = true
+                    sSelf.presentError(error)
+                }
+            }
+        })
+    }
+}

@@ -24,6 +24,7 @@
 		399D4CB32061A84E00EE1F8D /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CB22061A84E00EE1F8D /* ForecastCell.swift */; };
 		39B1B9DA2061BC3A00AD02B0 /* ModalPresenterAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1B9D92061BC3900AD02B0 /* ModalPresenterAnimator.swift */; };
 		39B1B9DC2061BD6C00AD02B0 /* ModalSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1B9DB2061BD6C00AD02B0 /* ModalSummaryViewController.swift */; };
+		39B1B9DE2061C97200AD02B0 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1B9DD2061C97200AD02B0 /* LocationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		399D4CB22061A84E00EE1F8D /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
 		39B1B9D92061BC3900AD02B0 /* ModalPresenterAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenterAnimator.swift; sourceTree = "<group>"; };
 		39B1B9DB2061BD6C00AD02B0 /* ModalSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSummaryViewController.swift; sourceTree = "<group>"; };
+		39B1B9DD2061C97200AD02B0 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				399D4C9F20618ABF00EE1F8D /* Model.swift */,
 				399D4CA120618ADC00EE1F8D /* DataFetcher.swift */,
 				399D4CA520618E8A00EE1F8D /* ForecastRequester.swift */,
+				39B1B9DD2061C97200AD02B0 /* LocationController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				399D4CA020618ABF00EE1F8D /* Model.swift in Sources */,
 				399D4CA620618E8A00EE1F8D /* ForecastRequester.swift in Sources */,
 				399D4C72206184EE00EE1F8D /* WeatherViewController.swift in Sources */,
+				39B1B9DE2061C97200AD02B0 /* LocationController.swift in Sources */,
 				399D4CB020619E5D00EE1F8D /* ForecastUpdater.swift in Sources */,
 				399D4C70206184EE00EE1F8D /* AppDelegate.swift in Sources */,
 				399D4CAB2061962900EE1F8D /* ViewModel.swift in Sources */,

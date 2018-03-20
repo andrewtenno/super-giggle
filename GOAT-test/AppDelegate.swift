@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let navController = window?.rootViewController as? UINavigationController,
             let weatherViewController = navController.topViewController as? WeatherViewController {
             weatherViewController.forecastUpdater = createForecastUpdater()
+            weatherViewController.locationController = createLocationController()
         }
 
         return true
@@ -34,5 +35,9 @@ private func createForecastUpdater() -> ForecastUpdatable {
     let generator = ForecastViewModelFactory()
 
     return ForecastUpdater(requester: requester, generator: generator)
+}
+
+private func createLocationController() -> LocationFindable {
+    return LocationController()
 }
 

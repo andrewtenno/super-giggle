@@ -72,9 +72,14 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Locate" style="plain" id="mr8-Ug-rda"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Locate" style="plain" id="mr8-Ug-rda">
+                            <connections>
+                                <action selector="didTapChangeLocationButton:" destination="rki-pF-r1V" id="ZaC-gf-slv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="changeLocationButton" destination="mr8-Ug-rda" id="nRS-6I-7U2"/>
                         <outlet property="changeRangeButton" destination="PkP-qr-Ex0" id="yF2-hu-Ee8"/>
                         <segue destination="I0C-YK-bEi" kind="presentation" identifier="presentSummaryViewController" id="5Bb-HU-mzo"/>
                     </connections>
