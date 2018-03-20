@@ -116,7 +116,32 @@ extension ForecastViewModelFactory: ForecastViewModelGeneratable {
         })
     }
 }
-
+/*
+ clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
+ */
 private func convertIconToEmoji(_ icon: String) -> String {
-    return ""
+    switch icon {
+    case "clear-day":
+        return "☀️"
+    case "clear-night":
+        return "🌃 "
+    case "rain":
+        return "☔️ "
+    case "snow":
+        return "❄️ "
+    case "sleet":
+        return "🌧 "
+    case "wind":
+        return "💨 "
+    case "fog":
+        return "🌫 "
+    case "cloudy":
+        return "☁️ "
+    case "partly-cloudy-day":
+        return "🌤 "
+    case "partly-cloudy-night":
+        return "☁️🌝"
+    default:
+        return ""
+    }
 }
