@@ -14,6 +14,9 @@
 		399D4C7A206184EE00EE1F8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 399D4C78206184EE00EE1F8D /* LaunchScreen.storyboard */; };
 		399D4C85206184EF00EE1F8D /* GOAT_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4C84206184EF00EE1F8D /* GOAT_testTests.swift */; };
 		399D4C90206184EF00EE1F8D /* GOAT_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4C8F206184EF00EE1F8D /* GOAT_testUITests.swift */; };
+		399D4CA020618ABF00EE1F8D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4C9F20618ABF00EE1F8D /* Model.swift */; };
+		399D4CA220618ADC00EE1F8D /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CA120618ADC00EE1F8D /* DataFetcher.swift */; };
+		399D4CA420618B0000EE1F8D /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 399D4CA320618B0000EE1F8D /* Mock.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		399D4C8B206184EF00EE1F8D /* GOAT-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GOAT-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		399D4C8F206184EF00EE1F8D /* GOAT_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GOAT_testUITests.swift; sourceTree = "<group>"; };
 		399D4C91206184EF00EE1F8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		399D4C9F20618ABF00EE1F8D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		399D4CA120618ADC00EE1F8D /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		399D4CA320618B0000EE1F8D /* Mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +103,14 @@
 		399D4C6E206184EE00EE1F8D /* GOAT-test */ = {
 			isa = PBXGroup;
 			children = (
+				399D4C9D20618A9700EE1F8D /* Model */,
 				399D4C6F206184EE00EE1F8D /* AppDelegate.swift */,
 				399D4C71206184EE00EE1F8D /* WeatherViewController.swift */,
 				399D4C73206184EE00EE1F8D /* Main.storyboard */,
 				399D4C76206184EE00EE1F8D /* Assets.xcassets */,
 				399D4C78206184EE00EE1F8D /* LaunchScreen.storyboard */,
 				399D4C7B206184EE00EE1F8D /* Info.plist */,
+				399D4CA320618B0000EE1F8D /* Mock.json */,
 			);
 			path = "GOAT-test";
 			sourceTree = "<group>";
@@ -123,6 +131,15 @@
 				399D4C91206184EF00EE1F8D /* Info.plist */,
 			);
 			path = "GOAT-testUITests";
+			sourceTree = "<group>";
+		};
+		399D4C9D20618A9700EE1F8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				399D4C9F20618ABF00EE1F8D /* Model.swift */,
+				399D4CA120618ADC00EE1F8D /* DataFetcher.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +252,7 @@
 				399D4C7A206184EE00EE1F8D /* LaunchScreen.storyboard in Resources */,
 				399D4C77206184EE00EE1F8D /* Assets.xcassets in Resources */,
 				399D4C75206184EE00EE1F8D /* Main.storyboard in Resources */,
+				399D4CA420618B0000EE1F8D /* Mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				399D4CA020618ABF00EE1F8D /* Model.swift in Sources */,
 				399D4C72206184EE00EE1F8D /* WeatherViewController.swift in Sources */,
 				399D4C70206184EE00EE1F8D /* AppDelegate.swift in Sources */,
+				399D4CA220618ADC00EE1F8D /* DataFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
