@@ -18,6 +18,9 @@
 		399D4CA420618B0000EE1F8D /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 399D4CA320618B0000EE1F8D /* Mock.json */; };
 		399D4CA620618E8A00EE1F8D /* ForecastRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CA520618E8A00EE1F8D /* ForecastRequester.swift */; };
 		399D4CA82061919100EE1F8D /* ForecastRequesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CA72061919100EE1F8D /* ForecastRequesterTests.swift */; };
+		399D4CAB2061962900EE1F8D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CAA2061962900EE1F8D /* ViewModel.swift */; };
+		399D4CAD206197C300EE1F8D /* ViewModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CAC206197C300EE1F8D /* ViewModelGenerator.swift */; };
+		399D4CB020619E5D00EE1F8D /* ForecastUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CAF20619E5C00EE1F8D /* ForecastUpdater.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		399D4CA320618B0000EE1F8D /* Mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
 		399D4CA520618E8A00EE1F8D /* ForecastRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRequester.swift; sourceTree = "<group>"; };
 		399D4CA72061919100EE1F8D /* ForecastRequesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRequesterTests.swift; sourceTree = "<group>"; };
+		399D4CAA2061962900EE1F8D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		399D4CAC206197C300EE1F8D /* ViewModelGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelGenerator.swift; sourceTree = "<group>"; };
+		399D4CAF20619E5C00EE1F8D /* ForecastUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastUpdater.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				399D4C9D20618A9700EE1F8D /* Model */,
+				399D4CA92061960300EE1F8D /* ViewModel */,
+				399D4CAE20619E3C00EE1F8D /* Updater */,
 				399D4C6F206184EE00EE1F8D /* AppDelegate.swift */,
 				399D4C71206184EE00EE1F8D /* WeatherViewController.swift */,
 				399D4C73206184EE00EE1F8D /* Main.storyboard */,
@@ -143,6 +151,23 @@
 				399D4CA520618E8A00EE1F8D /* ForecastRequester.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		399D4CA92061960300EE1F8D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				399D4CAA2061962900EE1F8D /* ViewModel.swift */,
+				399D4CAC206197C300EE1F8D /* ViewModelGenerator.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		399D4CAE20619E3C00EE1F8D /* Updater */ = {
+			isa = PBXGroup;
+			children = (
+				399D4CAF20619E5C00EE1F8D /* ForecastUpdater.swift */,
+			);
+			path = Updater;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,10 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				399D4CAD206197C300EE1F8D /* ViewModelGenerator.swift in Sources */,
 				399D4CA020618ABF00EE1F8D /* Model.swift in Sources */,
 				399D4CA620618E8A00EE1F8D /* ForecastRequester.swift in Sources */,
 				399D4C72206184EE00EE1F8D /* WeatherViewController.swift in Sources */,
+				399D4CB020619E5D00EE1F8D /* ForecastUpdater.swift in Sources */,
 				399D4C70206184EE00EE1F8D /* AppDelegate.swift in Sources */,
+				399D4CAB2061962900EE1F8D /* ViewModel.swift in Sources */,
 				399D4CA220618ADC00EE1F8D /* DataFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

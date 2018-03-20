@@ -9,7 +9,7 @@
 import Foundation
 
 struct Forecast: Decodable {
-    let currently: DataPoint?
+    let currently: DataPoint
     let daily: DataBlock
     let hourly: DataBlock
     let timeZone: String
