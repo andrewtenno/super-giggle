@@ -22,6 +22,8 @@
 		399D4CAD206197C300EE1F8D /* ViewModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CAC206197C300EE1F8D /* ViewModelGenerator.swift */; };
 		399D4CB020619E5D00EE1F8D /* ForecastUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CAF20619E5C00EE1F8D /* ForecastUpdater.swift */; };
 		399D4CB32061A84E00EE1F8D /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CB22061A84E00EE1F8D /* ForecastCell.swift */; };
+		39B1B9DA2061BC3A00AD02B0 /* ModalPresenterAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1B9D92061BC3900AD02B0 /* ModalPresenterAnimator.swift */; };
+		39B1B9DC2061BD6C00AD02B0 /* ModalSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1B9DB2061BD6C00AD02B0 /* ModalSummaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		399D4CAC206197C300EE1F8D /* ViewModelGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelGenerator.swift; sourceTree = "<group>"; };
 		399D4CAF20619E5C00EE1F8D /* ForecastUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastUpdater.swift; sourceTree = "<group>"; };
 		399D4CB22061A84E00EE1F8D /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
+		39B1B9D92061BC3900AD02B0 /* ModalPresenterAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenterAnimator.swift; sourceTree = "<group>"; };
+		39B1B9DB2061BD6C00AD02B0 /* ModalSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSummaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 			children = (
 				399D4C71206184EE00EE1F8D /* WeatherViewController.swift */,
 				399D4CB22061A84E00EE1F8D /* ForecastCell.swift */,
+				39B1B9DB2061BD6C00AD02B0 /* ModalSummaryViewController.swift */,
+				39B1B9D92061BC3900AD02B0 /* ModalPresenterAnimator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,7 +330,9 @@
 				399D4CB020619E5D00EE1F8D /* ForecastUpdater.swift in Sources */,
 				399D4C70206184EE00EE1F8D /* AppDelegate.swift in Sources */,
 				399D4CAB2061962900EE1F8D /* ViewModel.swift in Sources */,
+				39B1B9DA2061BC3A00AD02B0 /* ModalPresenterAnimator.swift in Sources */,
 				399D4CA220618ADC00EE1F8D /* DataFetcher.swift in Sources */,
+				39B1B9DC2061BD6C00AD02B0 /* ModalSummaryViewController.swift in Sources */,
 				399D4CB32061A84E00EE1F8D /* ForecastCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

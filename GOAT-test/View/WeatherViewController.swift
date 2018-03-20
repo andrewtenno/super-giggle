@@ -39,6 +39,19 @@ class WeatherViewController: UITableViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "presentSummaryViewController",
+            let summaryViewController = segue.destination as? ModalSummaryViewController,
+            let selectedIndexPath = tableView.indexPathForSelectedRow,
+            let viewModel = getViewModel(forIndexPath: selectedIndexPath) {
+            summaryViewController.summaryText = viewModel.summary
+            summaryViewController.modalPresentationStyle = .custom
+            summaryViewController.transitioningDelegate = self
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
+    }
+
     @IBAction func didTapChangeRangeButton(_ sender: Any) {
         presentSwitchRangeActionSheet()
     }
@@ -96,7 +109,9 @@ extension WeatherViewController {
 // MARK: UITableView Delegate
 
 extension WeatherViewController {
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "presentSummaryViewController", sender: nil)
+    }
 }
 
 // MARK: ForecastUpdatableDelegate
@@ -138,6 +153,20 @@ extension WeatherViewController {
             self.viewingMode = self.viewingMode == .daily ? .hourly : .daily
             self.tableView.reloadData()
         }
+    }
+}
+
+// MARK: - Custom Modal Animation
+
+extension WeatherViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return ModalPresenterAnimator()
+    }
+
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return ModalDismissalAnimator()
     }
 }
 
