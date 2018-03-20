@@ -61,8 +61,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Los Angeles" id="pXe-rS-9bt">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="QGp-Oa-zAh">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PkP-qr-Ex0">
+                                <rect key="frame" x="16" y="7" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change Range"/>
+                                <connections>
+                                    <action selector="didTapChangeRangeButton:" destination="rki-pF-r1V" eventType="touchUpInside" id="8Jh-4k-cgg"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Locate" style="plain" id="mr8-Ug-rda"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="changeRangeButton" destination="PkP-qr-Ex0" id="yF2-hu-Ee8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ags-Rf-wiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -23,7 +23,7 @@ class ForecastViewModelFactory {
 
     private let hourlyyDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
+        dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
 
         return dateFormatter

@@ -19,6 +19,8 @@ class WeatherViewController: UITableViewController {
     private var isLoading = false
     private var location = Location(latitude: 0, longitude: 0)
 
+    @IBOutlet weak var changeRangeButton: UIButton!
+
     enum ViewingMode {
         case daily, hourly
     }
@@ -35,6 +37,10 @@ class WeatherViewController: UITableViewController {
         if viewModel == nil {
             updateForecast()
         }
+    }
+
+    @IBAction func didTapChangeRangeButton(_ sender: Any) {
+        presentSwitchRangeActionSheet()
     }
 }
 
@@ -93,10 +99,13 @@ extension WeatherViewController {
 
 }
 
+// MARK: ForecastUpdatableDelegate
+
 extension WeatherViewController: ForecastUpdatableDelegate {
     func forecastUpdater(_ updater: ForecastUpdatable, didUpdateWithForecastViewModel viewModel: ForecastViewModel) {
         OperationQueue.main.addOperation {
             self.isLoading = false
+            self.changeRangeButton.isEnabled = true
             self.viewModel = viewModel
             self.tableView.reloadData()
         }
@@ -110,6 +119,28 @@ extension WeatherViewController: ForecastUpdatableDelegate {
     }
 }
 
+// MARK: Switch Daily/Hourly 
+
+extension WeatherViewController {
+    private func presentSwitchRangeActionSheet() {
+        let sortingString = "Currently showing \(viewingMode == .daily ? "Daily" : "Hourly") Forecast"
+        let alertController = UIAlertController(title: "Switch Range?", message: sortingString, preferredStyle: .actionSheet)
+        let title = "Switch to \(viewingMode == .hourly ? "Daily" : "Hourly")"
+        alertController.addAction(UIAlertAction(title: title, style: .default) { [weak self] (_) in
+            self?.flipSortingMethod()
+        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    private func flipSortingMethod() {
+        OperationQueue.main.addOperation {
+            self.viewingMode = self.viewingMode == .daily ? .hourly : .daily
+            self.tableView.reloadData()
+        }
+    }
+}
+
 // MARK: Helpers
 
 extension WeatherViewController {
@@ -117,6 +148,7 @@ extension WeatherViewController {
         guard !isLoading else { return }
 
         isLoading = true
+        changeRangeButton.isEnabled = false
         forecastUpdater?.updateForecast(forLocation: location)
     }
 
