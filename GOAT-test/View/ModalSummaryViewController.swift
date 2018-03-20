@@ -9,11 +9,18 @@
 import UIKit
 
 class ModalSummaryViewController: UIViewController {
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var forecastLabel: UILabel!
+    @IBOutlet weak var summaryTextView: UITextView!
     
-    var summaryText: String?
+    var viewModel: BaseViewModel?
 
     override func viewWillAppear(_ animated: Bool) {
-        textView.text = summaryText
+        super.viewWillAppear(animated)
+        guard let viewModel = viewModel else { return }
+
+        dateLabel.text = viewModel.dateTimeString
+        forecastLabel.text = viewModel.temperatureString
+        summaryTextView.text = viewModel.summary
     }
 }

@@ -26,11 +26,6 @@ class WeatherViewController: UITableViewController {
     }
     private var viewingMode: ViewingMode = .daily
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -44,7 +39,7 @@ class WeatherViewController: UITableViewController {
             let summaryViewController = segue.destination as? ModalSummaryViewController,
             let selectedIndexPath = tableView.indexPathForSelectedRow,
             let viewModel = getViewModel(forIndexPath: selectedIndexPath) {
-            summaryViewController.summaryText = viewModel.summary
+            summaryViewController.viewModel = viewModel
             summaryViewController.modalPresentationStyle = .custom
             summaryViewController.transitioningDelegate = self
         } else {

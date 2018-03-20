@@ -92,29 +92,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zfj-KI-DwA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpF-3i-q0r">
+                                <rect key="frame" x="0.0" y="20" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTu-hC-bYz">
+                                <rect key="frame" x="0.0" y="41" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fTu-hC-bYz" firstAttribute="trailing" secondItem="PpF-3i-q0r" secondAttribute="trailing" id="AcJ-77-KfQ"/>
                             <constraint firstItem="Zfj-KI-DwA" firstAttribute="leading" secondItem="e80-jO-KW7" secondAttribute="leading" id="Myc-9I-gZ1"/>
+                            <constraint firstItem="Zfj-KI-DwA" firstAttribute="top" secondItem="fTu-hC-bYz" secondAttribute="bottom" id="PSD-6d-R31"/>
+                            <constraint firstItem="fTu-hC-bYz" firstAttribute="width" secondItem="PpF-3i-q0r" secondAttribute="width" id="TXE-NN-GG9"/>
+                            <constraint firstItem="fTu-hC-bYz" firstAttribute="leading" secondItem="PpF-3i-q0r" secondAttribute="leading" id="UxU-Ms-MQa"/>
                             <constraint firstItem="Zfj-KI-DwA" firstAttribute="trailing" secondItem="e80-jO-KW7" secondAttribute="trailing" id="Wsj-Aa-pZJ"/>
-                            <constraint firstItem="Zfj-KI-DwA" firstAttribute="top" secondItem="e80-jO-KW7" secondAttribute="top" id="dyR-oY-nlf"/>
+                            <constraint firstItem="PpF-3i-q0r" firstAttribute="width" secondItem="1hG-Lm-IHl" secondAttribute="width" id="Y2C-Bh-T7y"/>
+                            <constraint firstItem="e80-jO-KW7" firstAttribute="trailing" secondItem="PpF-3i-q0r" secondAttribute="trailing" id="aog-Ph-Sva"/>
+                            <constraint firstItem="fTu-hC-bYz" firstAttribute="top" secondItem="PpF-3i-q0r" secondAttribute="bottom" id="dip-Dd-oC3"/>
+                            <constraint firstItem="PpF-3i-q0r" firstAttribute="leading" secondItem="e80-jO-KW7" secondAttribute="leading" id="efW-FX-NrZ"/>
                             <constraint firstItem="e80-jO-KW7" firstAttribute="bottom" secondItem="Zfj-KI-DwA" secondAttribute="bottom" id="f1Q-Ei-Be0"/>
+                            <constraint firstItem="PpF-3i-q0r" firstAttribute="top" secondItem="e80-jO-KW7" secondAttribute="top" id="sXX-UT-ErN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e80-jO-KW7"/>
                     </view>
                     <connections>
-                        <outlet property="textView" destination="Zfj-KI-DwA" id="tYD-4k-pm7"/>
+                        <outlet property="dateLabel" destination="PpF-3i-q0r" id="MmG-3j-fd1"/>
+                        <outlet property="forecastLabel" destination="fTu-hC-bYz" id="n41-lJ-AYc"/>
+                        <outlet property="summaryTextView" destination="Zfj-KI-DwA" id="57O-XE-wec"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0k-hC-tvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1959" y="123"/>
+            <point key="canvasLocation" x="1957.5999999999999" y="122.78860569715144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XK0-tq-5hV">
