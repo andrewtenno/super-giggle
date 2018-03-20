@@ -12,11 +12,12 @@
 		399D4C75206184EE00EE1F8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 399D4C73206184EE00EE1F8D /* Main.storyboard */; };
 		399D4C77206184EE00EE1F8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 399D4C76206184EE00EE1F8D /* Assets.xcassets */; };
 		399D4C7A206184EE00EE1F8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 399D4C78206184EE00EE1F8D /* LaunchScreen.storyboard */; };
-		399D4C85206184EF00EE1F8D /* GOAT_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4C84206184EF00EE1F8D /* GOAT_testTests.swift */; };
 		399D4C90206184EF00EE1F8D /* GOAT_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4C8F206184EF00EE1F8D /* GOAT_testUITests.swift */; };
 		399D4CA020618ABF00EE1F8D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4C9F20618ABF00EE1F8D /* Model.swift */; };
 		399D4CA220618ADC00EE1F8D /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CA120618ADC00EE1F8D /* DataFetcher.swift */; };
 		399D4CA420618B0000EE1F8D /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 399D4CA320618B0000EE1F8D /* Mock.json */; };
+		399D4CA620618E8A00EE1F8D /* ForecastRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CA520618E8A00EE1F8D /* ForecastRequester.swift */; };
+		399D4CA82061919100EE1F8D /* ForecastRequesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D4CA72061919100EE1F8D /* ForecastRequesterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,6 @@
 		399D4C79206184EE00EE1F8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		399D4C7B206184EE00EE1F8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		399D4C80206184EF00EE1F8D /* GOAT-testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GOAT-testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		399D4C84206184EF00EE1F8D /* GOAT_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GOAT_testTests.swift; sourceTree = "<group>"; };
 		399D4C86206184EF00EE1F8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		399D4C8B206184EF00EE1F8D /* GOAT-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GOAT-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		399D4C8F206184EF00EE1F8D /* GOAT_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GOAT_testUITests.swift; sourceTree = "<group>"; };
@@ -53,6 +53,8 @@
 		399D4C9F20618ABF00EE1F8D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		399D4CA120618ADC00EE1F8D /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		399D4CA320618B0000EE1F8D /* Mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
+		399D4CA520618E8A00EE1F8D /* ForecastRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRequester.swift; sourceTree = "<group>"; };
+		399D4CA72061919100EE1F8D /* ForecastRequesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRequesterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +120,8 @@
 		399D4C83206184EF00EE1F8D /* GOAT-testTests */ = {
 			isa = PBXGroup;
 			children = (
-				399D4C84206184EF00EE1F8D /* GOAT_testTests.swift */,
 				399D4C86206184EF00EE1F8D /* Info.plist */,
+				399D4CA72061919100EE1F8D /* ForecastRequesterTests.swift */,
 			);
 			path = "GOAT-testTests";
 			sourceTree = "<group>";
@@ -138,6 +140,7 @@
 			children = (
 				399D4C9F20618ABF00EE1F8D /* Model.swift */,
 				399D4CA120618ADC00EE1F8D /* DataFetcher.swift */,
+				399D4CA520618E8A00EE1F8D /* ForecastRequester.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 					};
 					399D4C7F206184EF00EE1F8D = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 399D4C6B206184EE00EE1F8D;
 					};
@@ -278,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				399D4CA020618ABF00EE1F8D /* Model.swift in Sources */,
+				399D4CA620618E8A00EE1F8D /* ForecastRequester.swift in Sources */,
 				399D4C72206184EE00EE1F8D /* WeatherViewController.swift in Sources */,
 				399D4C70206184EE00EE1F8D /* AppDelegate.swift in Sources */,
 				399D4CA220618ADC00EE1F8D /* DataFetcher.swift in Sources */,
@@ -288,7 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				399D4C85206184EF00EE1F8D /* GOAT_testTests.swift in Sources */,
+				399D4CA82061919100EE1F8D /* ForecastRequesterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,11 +480,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "GOAT-testTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewtenno.GOAT-testTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GOAT-test.app/GOAT-test";
@@ -491,6 +498,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "GOAT-testTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
