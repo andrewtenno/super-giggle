@@ -19,6 +19,7 @@ class WeatherViewController: UITableViewController {
 
     private var viewModel: ForecastViewModel?
     private var isLoading = false
+    private var locationString = "Los Angeles"
     private var location = Location(latitude: 37.8267,
                                     longitude: -122.4233)
 
@@ -121,6 +122,7 @@ extension WeatherViewController {
 extension WeatherViewController: ForecastUpdatableDelegate {
     func forecastUpdater(_ updater: ForecastUpdatable, didUpdateWithForecastViewModel viewModel: ForecastViewModel) {
         OperationQueue.main.addOperation {
+            self.title = self.locationString
             self.isLoading = false
             self.changeRangeButton.isEnabled = true
             self.changeLocationButton.isEnabled = true
@@ -213,9 +215,10 @@ extension WeatherViewController {
         locationController?.getLocation(completion: { [weak self] (result) in
             guard let sSelf = self else { return }
             switch result {
-            case .success(let location):
+            case .success(let (location, cityName)):
                 OperationQueue.main.addOperation {
                     sSelf.location = location
+                    sSelf.locationString = cityName
                     sSelf.updateForecast()
                 }
             case .failure(let error):
