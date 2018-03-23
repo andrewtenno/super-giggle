@@ -40,7 +40,9 @@ extension LocationController: LocationFindable {
             getLocationCompletion = completion
             locationManager.requestLocation()
         } else if (CLLocationManager.authorizationStatus() == .notDetermined) {
+            getLocationCompletion = completion
             locationManager.requestWhenInUseAuthorization()
+            locationManager.requestLocation()
         } else {
             completion(.failure(LocationControllerError.deniedPermission))
         }

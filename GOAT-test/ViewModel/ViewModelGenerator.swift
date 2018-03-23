@@ -47,12 +47,12 @@ class ForecastViewModelFactory {
 
 extension ForecastViewModelFactory: ForecastViewModelGeneratable {
     func generateViewModels(fromForecast forecast: Forecast) -> ForecastViewModel {
-        return ForecastViewModel(currentViewModel: generateBaseViewModel(fromCurrentDataPoint: forecast.currently, timeZone: forecast.timeZone),
+        return ForecastViewModel(currentViewModel: generateCurrentViewModel(fromCurrentDataPoint: forecast.currently, timeZone: forecast.timeZone),
                                  hourlyViewModels: generateHourlyViewModels(fromHourlyDataBlock: forecast.hourly, timeZone: forecast.timeZone),
                                  dailyViewModels: generateDailyViewModels(fromDailyDataBlock: forecast.daily, timeZone: forecast.timeZone))
     }
 
-    private func generateBaseViewModel(fromCurrentDataPoint dataPoint: DataPoint, timeZone: String) -> BaseViewModel {
+    private func generateCurrentViewModel(fromCurrentDataPoint dataPoint: DataPoint, timeZone: String) -> BaseViewModel {
         currentDateFormatter.timeZone = TimeZone(identifier: timeZone)
         let dateTimeString = currentDateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(dataPoint.time)))
         let summary = dataPoint.summary ?? ""
